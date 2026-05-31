@@ -1,0 +1,6 @@
+{
+  "name": "BYD Clone",
+  "description": "A pixel-perfect, fully responsive clone of the official BYD website homepage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Cars, Sedans and SUVs | BYD AUTO</title>
+  
+  <!-- Inter & Space Grotesk fonts for luxury editorial design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Absolute aesthetic enhancements */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .animate-fade-in-down {
+      opacity: 0;
+      animation: fadeInDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .text-readable-shadow {
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85), 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Scrollbar cosmetic upgrades */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Refined Mobile Scrollbar - extremely thin, dark/black, almost invisible */
+    @media (max-width: 768px) {
+      html {
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 3px !important;
+        height: 3px !important;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent !important;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #111111 !important;
+        border-radius: 9999px !important;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #000000 !important;
+      }
+    }
+
+    /* Dropdown specific scrollbar properties designed to match screenshot */
+    .dropdown-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .dropdown-scrollbar::-webkit-scrollbar-track {
+      background: #e5e5e5;
+    }
+    .dropdown-scrollbar::-webkit-scrollbar-thumb {
+      background: #888888;
+      border-radius: 3px;
+    }
+    .dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #555555;
+    }
+  </style>
+</head>
+<body class="bg-[#111111] text-white font-sans antialiased overflow-y-auto selection:bg-white selection:text-black">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR (SCROLLS AWAY) -->
+  <div class="w-full bg-[#0d0d0d] h-[32px] flex items-center justify-end px-6 sm:px-12 border-b border-white/[0.04] z-45 relative">
+    <button id="top-global-trigger" class="flex items-center space-x-1.5 text-white/90 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-white/30 px-1 py-0.5 rounded cursor-pointer" aria-label="Global Region Selector">
+      <!-- Globe Icon -->
+      <svg class="w-3.5 h-3.5 stroke-[2] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M2 12h20"></path>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span>Global</span>
+    </button>
+  </div>
+  
+  <!-- 2. MAIN NAVIGATION (STICKY AT THE TOP OF VIEWPORT WITH REDUCED h-[70px] HEIGHT) -->
+  <header class="sticky top-0 z-50 w-full bg-[#181818] h-[70px] flex items-center pl-8 pr-6 sm:pl-14 sm:pr-12 border-b border-white/[0.02] transition-colors duration-300">
+    <div class="max-w-[1400px] w-full mx-auto flex items-center justify-between">
+      
+      <!-- Left: BYD Brand Logo -->
+      <a href="https://www.byd.com/en" class="flex items-center opacity-100" id="brand-logo" aria-label="BYD Corporate Home">
+        <img src="https://i.imgur.com/YvLInrM.png" alt="BYD Logo" class="h-[52px] sm:h-[72px] md:h-[80px] max-w-[260px] w-auto object-contain block opacity-100 select-none pointer-events-none" />
+      </a>
+
+      <!-- Center: Navigation Links Matrix -->
+      <nav class="hidden md:flex items-center space-x-12 font-medium tracking-[0.16em] text-[#e5e5e5] text-[12px] uppercase">
+        <a href="#about" class="hover:text-white transition-colors py-1">
+          About BYD
+        </a>
+        <a href="#contact" class="hover:text-white transition-colors py-1">
+          Contact US
+        </a>
+        <a href="#news" class="hover:text-white transition-colors py-1">
+          News
+        </a>
+      </nav>
+
+      <!-- Right: Language / Globe Icon -->
+      <div class="flex items-center">
+        <button id="globe-trigger" class="text-white hover:text-white/80 transition-colors p-2 focus:outline-none focus:ring-1 focus:ring-white/30 rounded cursor-pointer" aria-label="Language Selector">
+          <svg class="w-5 h-5 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 3. GLOBAL REGION SELECTOR PANEL CONTAINER -->
+    <div id="globe-dropdown" class="absolute top-[70px] left-0 w-full bg-[#F5F5F5] border-b border-gray-300 z-50 text-[#111111] transition-all duration-300 ease-out transform -translate-y-4 opacity-0 pointer-events-none overflow-y-auto h-auto max-h-[calc(100vh-70px)] sm:max-h-[580px] dropdown-scrollbar">
+      <div class="max-w-[1400px] w-full mx-auto px-6 sm:px-12 py-10 sm:py-14">
+        
+        <!-- Region navigation row -->
+        <div class="flex flex-wrap items-center gap-x-8 sm:gap-x-12 gap-y-4 pb-8 border-b border-gray-300" id="region-tabs-container">
+          <button class="region-tab text-base sm:text-[18px] lg:text-[20px] font-bold text-[#111111] transition-colors tracking-wide uppercase focus:outline-none focus:ring-2 focus:ring-gray-400 px-1 py-1 cursor-pointer" data-region="america" aria-selected="true">
+            America
+          </button>
+          <button class="region-tab text-base sm:text-[18px] lg:text-[20px] font-medium text-gray-400 hover:text-gray-600 transition-colors tracking-wide uppercase focus:outline-none focus:ring-2 focus:ring-gray-400 px-1 py-1 cursor-pointer" data-region="europe" aria-selected="false">
+            Europe
+          </button>
+          <button class="region-tab text-base sm:text-[18px] lg:text-[20px] font-medium text-gray-400 hover:text-gray-600 transition-colors tracking-wide uppercase focus:outline-none focus:ring-2 focus:ring-gray-400 px-1 py-1 cursor-pointer" data-region="asiapacific" aria-selected="false">
+            Asia-Pacific
+          </button>
+          <button class="region-tab text-base sm:text-[18px] lg:text-[20px] font-medium text-gray-400 hover:text-gray-600 transition-colors tracking-wide uppercase focus:outline-none focus:ring-2 focus:ring-gray-400 px-1 py-1 cursor-pointer" data-region="middleeastafrica" aria-selected="false">
+            Middle East & Africa
+          </button>
+          <button class="region-tab text-base sm:text-[18px] lg:text-[20px] font-medium text-gray-400 hover:text-gray-600 transition-colors tracking-wide uppercase focus:outline-none focus:ring-2 focus:ring-gray-400 px-1 py-1 cursor-pointer" data-region="other" aria-selected="false">
+            Other Countries and Regions
+          </button>
+        </div>
+
+        <!-- Dynamic Multi-Column Grid of Countries -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-x-12 gap-y-2 pt-10 sm:pt-14" id="countries-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO PAGE SECTION (BYD ATTO 3 VIDEO REVELATION) -->
+  <section id="hero" class="relative h-[85vh] sm:h-[820px] w-full bg-black overflow-hidden flex flex-col justify-between selection:bg-transparent cursor-default select-none">
+    
+    <!-- Video element looping infinitely with pointer events disabled to prevent any lingering hover state interactions -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+      <video 
+        id="hero-video"
+        src="https://i.imgur.com/V8DYzWv.mp4" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="w-full h-full object-cover select-none pointer-events-none opacity-100"
+        style="opacity: 1; filter: none; mix-blend-mode: normal; transition: object-position 0.8s cubic-bezier(0.16, 1, 0.3, 1);"
+      ></video>
+    </div>
+
+    <!-- Centered Visual Content Overlay (Title positioned in the upper-middle, button beneath with precise automotive layout spacing) -->
+    <div class="absolute inset-0 z-20 flex flex-col justify-center items-center px-4 selection:bg-transparent pointer-events-none">
+      
+      <!-- Group container configured with auto offsets to align title in upper-middle and CTA button near the car's body -->
+      <div class="flex flex-col items-center justify-center text-center pointer-events-auto max-w-4xl">
+        <h1 
+          id="hero-title" 
+          class="text-[36px] sm:text-[70px] md:text-[84px] font-bold text-white tracking-[0.05em] uppercase leading-none animate-fade-in-down mb-44 sm:mb-64 md:mb-[260px]"
+          style="animation-delay: 200ms; text-shadow: none; box-shadow: none; filter: none; backdrop-filter: none;"
+        >
+          BYD ATTO 3
+        </h1>
+        
+        <div 
+          class="animate-fade-in-up" 
+          style="animation-delay: 600ms;"
+        >
+          <a 
+            href="https://www.byd.com/en/car/atto3"
+            target="_blank"
+            class="inline-block px-12 py-3.5 border border-white text-white font-semibold text-[11px] sm:text-xs tracking-[0.25em] uppercase bg-transparent transition-opacity duration-300 hover:opacity-75 cursor-pointer text-center"
+            style="text-shadow: none; box-shadow: none; filter: none; backdrop-filter: none;"
+            id="atto3-explore"
+          >
+            Explore More
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 2. HAN EV SECTION -->
+  <section id="han-ev" class="relative h-[85vh] sm:h-[820px] w-full bg-black overflow-hidden flex flex-col justify-center items-center selection:bg-transparent cursor-default select-none">
+    
+    <!-- Panoramic high-end architectural illustration background -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div 
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('/src/assets/images/byd_han_ev_screenshot_1780218979083.png');"
+      ></div>
+      <div class="absolute inset-0 bg-black/15 z-10"></div>
+    </div>
+
+    <!-- Centered Visual Content Overlay (Title and Button grouped in the exact visual center of the section) -->
+    <div class="absolute inset-0 z-20 flex flex-col justify-center items-center px-4 selection:bg-transparent pointer-events-none">
+      
+      <!-- Group container for Title + Button to center them together perfectly -->
+      <div class="flex flex-col items-center justify-center text-center pointer-events-auto max-w-4xl">
+        <h2 class="text-[32px] sm:text-[48px] md:text-[60px] font-bold text-white tracking-[0.16em] uppercase leading-none animate-fade-in mb-8 sm:mb-10">
+          HAN EV
+        </h2>
+        
+        <div>
+          <a 
+            href="https://www.byd.com/en/car/han"
+            target="_blank"
+            class="inline-block px-12 py-3.5 border border-white text-white font-semibold text-[11px] sm:text-xs tracking-[0.25em] uppercase bg-transparent transition-opacity duration-300 hover:opacity-75 cursor-pointer text-center"
+            id="han-explore"
+          >
+            Explore More
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 3. TECHNOLOGY GREEN FUTURE SECTOR BANNER -->
+  <section id="technology-future" class="relative h-[72vh] sm:h-[650px] w-full bg-black overflow-hidden flex items-center justify-center">
+    
+    <!-- Panoramic Epic Cosmic Banner Background -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div 
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('/src/assets/images/byd_space_earth_screenshot_1780219001021.png');"
+      ></div>
+      <div class="absolute inset-0 bg-black/10 z-10"></div>
+    </div>
+
+    <!-- Centered Editorial Statement (No buttons in this sector as requested) -->
+    <div class="relative z-20 px-6 text-center max-w-5xl select-all">
+      <h2 class="text-xl sm:text-3xl md:text-[34px] font-medium text-white tracking-[0.26em] uppercase leading-relaxed font-sans animate-fade-in">
+        TECHNOLOGY GREEN FUTURE
+      </h2>
+    </div>
+
+  </section>
+
+  <!-- 4. SIGNATURE LUXURY FOOTER SECTION -->
+  <footer class="bg-[#181818] text-[#a3a3a3] text-xs pt-28 pb-14 px-6 sm:px-12 border-t border-white/[0.04]">
+    <div class="max-w-[1400px] mx-auto flex flex-col">
+      
+      <!-- Top Row: Navigation and Follow-us panel -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        
+        <!-- Left Link Matrix -->
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3 font-semibold text-[11px] sm:text-[12px] tracking-[0.16em] uppercase text-white/90">
+          <a href="https://www.byd.com/en/privacy" target="_blank" class="hover:text-white transition-colors duration-300">Privacy & Legal</a>
+          <a href="https://www.byd.com/en/cookie-policy" target="_blank" class="hover:text-white transition-colors duration-300">Cookie Policy</a>
+          <a href="https://www.byd.com/en/contact-us" target="_blank" class="hover:text-white transition-colors duration-300">Contact</a>
+        </div>
+
+        <!-- Right Follow Us Matrix (Labels and plain icons horizontal alignment) -->
+        <div class="flex items-center space-x-6">
+          <span class="text-[11px] sm:text-[12px] font-bold text-white/95 uppercase tracking-[0.2em] whitespace-nowrap">FOLLOW US</span>
+          <div class="flex items-center lg:space-x-5 space-x-4">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" class="text-white/40 hover:text-white transition-colors cursor-pointer" id="fb-link" aria-label="Facebook">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3.3 0-5 1.7-5 5v2z"/>
+              </svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://twitter.com" target="_blank" class="text-white/40 hover:text-white transition-colors cursor-pointer" id="twitter-link" aria-label="X">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M18.2 2H21.5L14.3 10.3L22.8 21.5H16.2L11 14.6L5.1 21.5H1.8L9.5 12.7L1.4 2H8.2L12.9 8.2L18.2 2ZM17 19.5H18.8L7.3 4.1H5.4L17 19.5Z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" class="text-white/40 hover:text-white transition-colors cursor-pointer" id="ig-link" aria-label="Instagram">
+              <svg class="w-4 h-4 stroke-[1.8] stroke-current fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" class="text-white/40 hover:text-white transition-colors cursor-pointer" id="tiktok-link" aria-label="TikTok">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.5 2v6.5a4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4H10V2H8.5a6.5 6.5 0 0 0-6.5 6.5A6.5 6.5 0 0 0 8.5 15a6.5 6.5 0 0 0 6.5-6.5V6a4.5 4.5 0 0 0 3.5 1.5V5.5A2.5 2.5 0 0 1 15 3V2h-2.5z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" class="text-white/40 hover:text-white transition-colors cursor-pointer" id="yt-link" aria-label="YouTube">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M23.5 6.2c-.3-1.1-1.1-2-2.2-2.3C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.4C1.6 4.2.8 5 .5 6.2.1 8.2.1 12 .1 12s0 3.8.4 5.8c.3 1.1 1.1 2 2.2 2.3 2 1.3 9.3 1.3 9.3 1.3s7.3 0 9.3-.4c1.1-.3 1.9-1.2 2.2-2.3.4-2 .4-5.8.4-5.8s0-3.8-.4-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Middle: Large empty breathing space exactly like reference -->
+      <div class="h-24 sm:h-36 md:h-40"></div>
+
+      <!-- Divider: Thin horizontal line across screen -->
+      <div class="border-t border-white/[0.08] w-full"></div>
+
+      <!-- Bottom Row: Centered copyright disclaimer text -->
+      <div class="pt-8 flex flex-col items-center justify-center text-[10px] sm:text-[11px] text-[#737373] tracking-[0.06em] font-medium uppercase">
+        <span>© BYD Company Ltd. All rights reserved.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interactivity for the Global Region Selector exactly as required -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const topTrigger = document.getElementById("top-global-trigger");
+      const mainTrigger = document.getElementById("globe-trigger");
+      const dropdown = document.getElementById("globe-dropdown");
+      const tabs = document.querySelectorAll(".region-tab");
+      const grid = document.getElementById("countries-grid");
+
+      let dropdownOpen = false;
+      let hoverTimeout = null;
+
+      // Country lists for each region structured for a clean 4-column layout
+      const countryData = {
+        america: [
+          ["Argentina", "Chile", "Ecuador", "Panama", "The Bahamas"],
+          ["Brazil", "Colombia", "El Salvador", "Paraguay", "Uruguay"],
+          ["Bolivia", "Costa Rica", "Guatemala", "Peru"],
+          ["Caribbean Region", "Dominican Republic", "Mexico", "The United States"]
+        ],
+        europe: [
+          ["Austria", "Belgium", "Denmark", "Finland"],
+          ["France", "Germany", "Ireland", "Italy"],
+          ["Netherlands", "Norway", "Portugal", "Spain"],
+          ["Sweden", "Switzerland", "United Kingdom", "Turkey"]
+        ],
+        asiapacific: [
+          ["Australia", "China", "India", "Indonesia"],
+          ["Japan", "Malaysia", "New Zealand", "Philippines"],
+          ["Singapore", "South Korea", "Thailand", "Vietnam"],
+          ["Cambodia", "Laos", "Nepal", "Bangladesh"]
+        ],
+        middleeastafrica: [
+          ["Israel", "Jordan", "Kuwait", "Lebanon"],
+          ["Oman", "Qatar", "Saudi Arabia", "UAE"],
+          ["Egypt", "Morocco", "Kenya", "South Africa"],
+          ["Bahrain", "Mauritius", "Nigeria", "Tunisia"]
+        ],
+        other: [
+          ["Global Channel Partners", "International Fleet"],
+          ["Overseas Distributors", "Other Regions"],
+          [],
+          []
+        ]
+      };
+
+      // Renders countries for the current region inside the 4-column grid
+      function renderCountries(region) {
+        if (!grid) return;
+        grid.innerHTML = "";
+
+        const cols = countryData[region] || [[], [], [], []];
+
+        for (let colIdx = 0; colIdx < 4; colIdx++) {
+          const colDiv = document.createElement("div");
+          colDiv.className = "flex flex-col space-y-4";
+          
+          const countries = cols[colIdx] || [];
+          countries.forEach(country => {
+            const btn = document.createElement("a");
+            btn.href = "#";
+            btn.className = "country-item text-[#4a4a4a] hover:text-black font-semibold text-[15px] sm:text-[16px] tracking-wide transition-colors duration-200 py-2 block text-left focus:outline-none focus:ring-2 focus:ring-gray-400 px-2 rounded cursor-pointer";
+            btn.textContent = country;
+
+            // Clicking on a country selects it and closes the menu
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              console.log(`Region Country Selected: ${country}`);
+              closeDropdown();
+              // Optionally refocus the trigger
+              mainTrigger.focus();
+            });
+
+            colDiv.appendChild(btn);
+          });
+          grid.appendChild(colDiv);
+        }
+      }
+
+      function openDropdown() {
+        if (dropdownOpen) return;
+        dropdownOpen = true;
+        dropdown.classList.remove("-translate-y-4", "opacity-0", "pointer-events-none");
+        dropdown.classList.add("translate-y-0", "opacity-100", "pointer-events-auto");
+        mainTrigger.setAttribute("aria-expanded", "true");
+        topTrigger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeDropdown() {
+        if (!dropdownOpen) return;
+        dropdownOpen = false;
+        dropdown.classList.remove("translate-y-0", "opacity-100", "pointer-events-auto");
+        dropdown.classList.add("-translate-y-4", "opacity-0", "pointer-events-none");
+        mainTrigger.setAttribute("aria-expanded", "false");
+        topTrigger.setAttribute("aria-expanded", "false");
+      }
+
+      function toggleDropdown() {
+        if (dropdownOpen) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      }
+
+      // Add hover handlers to triggers
+      [mainTrigger, topTrigger].forEach(trig => {
+        trig.addEventListener("mouseenter", () => {
+          if (hoverTimeout) clearTimeout(hoverTimeout);
+          openDropdown();
+        });
+
+        trig.addEventListener("mouseleave", () => {
+          hoverTimeout = setTimeout(() => {
+            if (!dropdown.matches(":hover") && !mainTrigger.matches(":hover") && !topTrigger.matches(":hover")) {
+              closeDropdown();
+            }
+          }, 150);
+        });
+
+        trig.addEventListener("click", (e) => {
+          e.stopPropagation();
+          toggleDropdown();
+        });
+      });
+
+      // Add hover handlers to the dropdown itself to keep it open
+      dropdown.addEventListener("mouseenter", () => {
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        hoverTimeout = setTimeout(() => {
+          if (!mainTrigger.matches(":hover") && !topTrigger.matches(":hover")) {
+            closeDropdown();
+          }
+        }, 150);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target) && !mainTrigger.contains(e.target) && !topTrigger.contains(e.target)) {
+          closeDropdown();
+        }
+      });
+
+      // Handle Region Tab clicks
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => {
+            t.classList.remove("font-bold", "text-[#111111]");
+            t.classList.add("font-medium", "text-gray-400", "hover:text-gray-600");
+            t.setAttribute("aria-selected", "false");
+          });
+
+          tab.classList.remove("font-medium", "text-gray-400", "hover:text-gray-600");
+          tab.classList.add("font-bold", "text-[#111111]");
+          tab.setAttribute("aria-selected", "true");
+
+          const region = tab.getAttribute("data-region");
+          renderCountries(region);
+        });
+      });
+
+      // Keyboard navigation support exactly as required
+      document.addEventListener("keydown", (e) => {
+        if (!dropdownOpen) return;
+
+        if (e.key === "Escape") {
+          closeDropdown();
+          mainTrigger.focus();
+          e.preventDefault();
+          return;
+        }
+
+        const focusableTabs = Array.from(document.querySelectorAll(".region-tab"));
+        const focusableCountries = Array.from(document.querySelectorAll(".country-item"));
+        const activeElement = document.activeElement;
+
+        // If a region tab is focused
+        if (focusableTabs.includes(activeElement)) {
+          const idx = focusableTabs.indexOf(activeElement);
+          if (e.key === "ArrowRight") {
+            const nextIdx = (idx + 1) % focusableTabs.length;
+            focusableTabs[nextIdx].focus();
+            e.preventDefault();
+          } else if (e.key === "ArrowLeft") {
+            const prevIdx = (idx - 1 + focusableTabs.length) % focusableTabs.length;
+            focusableTabs[prevIdx].focus();
+            e.preventDefault();
+          } else if (e.key === "ArrowDown") {
+            if (focusableCountries.length > 0) {
+              focusableCountries[0].focus();
+              e.preventDefault();
+            }
+          }
+        } 
+        // If a country item is focused
+        else if (focusableCountries.includes(activeElement)) {
+          const idx = focusableCountries.indexOf(activeElement);
+          if (e.key === "ArrowDown") {
+            // Move down in grid structure
+            if (idx + 4 < focusableCountries.length) {
+              focusableCountries[idx + 4].focus();
+            }
+            e.preventDefault();
+          } else if (e.key === "ArrowUp") {
+            if (idx - 4 >= 0) {
+              focusableCountries[idx - 4].focus();
+            } else {
+              // Return focus to active region tab
+              const activeTab = document.querySelector('.region-tab[aria-selected="true"]');
+              if (activeTab) activeTab.focus();
+            }
+            e.preventDefault();
+          } else if (e.key === "ArrowRight") {
+            if (idx + 1 < focusableCountries.length) {
+              focusableCountries[idx + 1].focus();
+            }
+            e.preventDefault();
+          } else if (e.key === "ArrowLeft") {
+            if (idx - 1 >= 0) {
+              focusableCountries[idx - 1].focus();
+            }
+            e.preventDefault();
+          }
+        }
+      });
+
+      // Render America initially as default
+      renderCountries("america");
+
+      // Content-Aware Hero Video Focal Point Tracker for Mobile Devices
+      const heroVideo = document.getElementById("hero-video");
+      if (heroVideo) {
+        const adjustFocalPoint = () => {
+          if (window.innerWidth < 768) {
+            const time = heroVideo.currentTime;
+            // The interior rotating tablet/iPad scene occurs between 3.0 and 9.5 seconds of the video.
+            // Shifting the focal point to 72% right preserves the tablet nicely inside the taller mobile viewport.
+            if (time >= 3.0 && time <= 9.5) {
+              heroVideo.style.setProperty("object-position", "72% center", "important");
+            } else if (time > 9.5 && time <= 15.0) {
+              // Smoothly transition to 60% right to capture detail shots
+              heroVideo.style.setProperty("object-position", "60% center", "important");
+            } else {
+              // Keep driving shots gracefully centered
+              heroVideo.style.setProperty("object-position", "50% center", "important");
+            }
+          } else {
+            heroVideo.style.removeProperty("object-position");
+          }
+        };
+
+        heroVideo.addEventListener("timeupdate", adjustFocalPoint);
+        window.addEventListener("resize", adjustFocalPoint);
+      }
+    });
+  </script>
+
+</body>
+</html>
